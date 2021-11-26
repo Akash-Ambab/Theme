@@ -1,0 +1,11 @@
+.customWishlist {
+    position: absolute;
+    top: 261px;
+    right: 570px;
+    z-index: 9;
+    font-weight: bolder;
+}
+
+.hot:before {
+    content: '\1F525';
+}
