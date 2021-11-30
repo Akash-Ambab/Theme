@@ -32,7 +32,7 @@ $discount = 100 - round(($fprice / $rprice) * 100);
 <?php if ($block->hasSpecialPrice()) : ?>
     <span class="old-price sly-old-price">
         <?= /* @noEscape */ $block->renderAmount($priceModel->getAmount(), [
-            'display_label'     => __('Original Price'),
+            'display_label'     => __(''),
             'price_id'          => $block->getPriceId('old-price-' . $idSuffix),
             'price_type'        => 'oldPrice',
             'include_container' => true,

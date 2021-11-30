@@ -19,6 +19,13 @@ $_helper = $this->helper(Magento\Catalog\Helper\Output::class);
 $_product = $block->getProduct();
 
 $productId = $_product->getId();
+
+$productSku = $_product->getSku();
+
+if($_product->getTypeId() == 'simple') {
+    $salableQty = $qtyBlock->getProductSalableQty($productSku);
+}
+
 $_qty = $qtyBlock->getRemainingQty($productId);
 
 if (!$_product instanceof \Magento\Catalog\Model\Product) {
@@ -63,8 +70,10 @@ if ($_attributeType && $_attributeType == 'text') {
     
     <strong>
         <br>
-        <span style="font-size: 20px; color: green;"><?= $_qty ?></span>
-        <span> Units left</span>
+        <?php if(isset($salableQty)): ?>
+            <span style="font-size: 20px; color: green;"><?= $salableQty ?></span>
+            <span> Units left</span>
+        <?php endif; ?>
     </strong>
 
 </div>

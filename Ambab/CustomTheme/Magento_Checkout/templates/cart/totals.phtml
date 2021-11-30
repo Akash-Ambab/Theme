@@ -1,0 +1,23 @@
+<div id="cart-totals" class="cart-totals" data-bind="scope:'block-totals'">
+    <!-- ko template: getTemplate() --><!-- /ko -->
+    <?php
+        $blockobj = $block->getLayout()->createBlock('Ambab\EmiCalculator\Block\MinimumCheckout');
+        $TotalPrice = $blockobj->getGrandTotal();
+        $miniAmt = $blockobj->getMinimumValue();
+        $balanceAmt = $miniAmt - $TotalPrice;
+    ?>
+        <?php if ($TotalPrice < $miniAmt) :?>
+            <p style="background: #fdf0d5; padding: 5px; color: #c07000;">
+            <?= "Kindly add item worth ". $balanceAmt ."Rs in your cart to proceed" ;?><br/>
+        </p>
+        <?php endif; ?>
+
+
+    <script type="text/x-magento-init">
+            {
+                "#cart-totals": {
+                    "Magento_Ui/js/core/app": <?= /* @noEscape */ $block->getJsLayout() ?>
+                }
+            }
+    </script>
+</div>

@@ -1,10 +1,3 @@
-<?php 
-    //echo $_item->getHotProduct(); 
-
-    
-
-?>
-
 <?php
 /**
  * Copyright © Magento, Inc. All rights reserved.
@@ -82,6 +75,10 @@ $_helper = $block->getData('outputHelper');
                         </strong>
                         <?= $block->getReviewsSummaryHtml($_product, $templateType) ?>
                         <?= /* @noEscape */ $block->getProductPrice($_product) ?>
+
+                        <?php if ($_product->getHotProduct()): ?>
+                            <strong><span class="hot"> This Is Hot Product</span><br></strong>
+                        <?php endif; ?>
 
                         <?= $block->getProductDetailsHtml($_product) ?>
 

@@ -1,5 +1,6 @@
 .customWishlist {
     position: absolute;
+    padding: 20px 0;
     top: 261px;
     right: 570px;
     z-index: 9;
